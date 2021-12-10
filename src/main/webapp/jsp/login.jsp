@@ -9,8 +9,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>成绩管理系统</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
+    <title>车位在线售卖系统</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/login.css">
 </head>
 <body>
 <%--<header>--%>
@@ -25,9 +25,9 @@
 <%--main--%>
 <main>
     <div class="container">
-        <img class="login_bg" src="${pageContext.request.contextPath}/image/login1.jpg">
+        <img class="login_bg" src="${pageContext.request.contextPath }/image/login1.jpg">
         <form  class="form" action="LoginServlet" method="post">
-            <h3>成绩管理系统</h3>
+            <h3>车位在线售卖系统</h3>
             <p>登录</p>
             <input type="text" autofocus="autofocus" name="adminname" value placeholder="学号或工号" required="required">
             <input type="password" name="password" value placeholder="密码" required="required">
