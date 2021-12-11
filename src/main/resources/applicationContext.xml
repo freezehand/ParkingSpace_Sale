@@ -48,11 +48,11 @@
     <!-- 配置扫描包 加载mapper代理对象 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 扫描mapper路径 -->
-        <property name="basePackage" value="com.mapper"/>
+        <property name="basePackage" value="Dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
     </bean>
 
-    <mybatis-spring:scan base-package="com.mapper"/>
+    <mybatis-spring:scan base-package="Dao"/>
 
 
     <!-- 扫描Service包 -->

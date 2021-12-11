@@ -17,7 +17,7 @@
 
     <typeAliases>
         <!--批量配置别名-->
-        <package name="com.pojo"/>
+        <package name="Pojo"/>
     </typeAliases>
 
 </configuration>
