@@ -33,7 +33,7 @@
             <input type="text" autofocus="autofocus" name="username" value placeholder="用户名" required="required">
             <input type="password" name="password" value placeholder="密码" required="required">
             <select name="usertype">
-                <option value="业主用户" selected="selected">业主</option>
+                <option value="业主用户" selected="selected">业主用户</option>
                 <option value="业务人员">业务人员</option>
                 <option value="管理员">管理员</option>
             </select>

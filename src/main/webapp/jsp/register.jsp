@@ -28,7 +28,7 @@
 <main>
     <div class="container">
         <img class="login_bg" src="${pageContext.request.contextPath }/image/login1.jpg">
-        <form  class="form" action="LoginServlet" method="post" name="registerform">
+        <form  class="form" action="${pageContext.request.contextPath}/user/register" method="post" name="registerform">
             <h3>车位在线售卖系统</h3>
             <p>注册</p>
             <input type="text" autofocus="autofocus" id="username" name="username" value placeholder="用户名" required="required">
@@ -36,7 +36,7 @@
 <%--            <input type="password" name="repassword" id="repassword" value placeholder="确认密码" required="required">--%>
             <input type="text" name="name" id="name" value placeholder="真实姓名" required="required">
             <input type="text" name="address" id="address" value placeholder="小区地址（例XX小区X幢X室）" required="required">
-            <font color=red>${result}</font>
+            <font color=red>${message}</font>
             <input id="submit" type="submit" name="submit" value="注册">
         </form>
     </div>

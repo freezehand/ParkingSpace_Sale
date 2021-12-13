@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.AddressMapper">
+    <select id="UserRegister" parameterType="Address" resultType="Address">
+        select * from address where name=#{name} and address=#{address} and registered='未注册'
+    </select>
+    <update id="IsRegister" parameterType="Address">
+        update address set registered='已注册' where name=#{name}
+    </update>
+</mapper>

@@ -6,4 +6,8 @@
     <select id="UserLogin" resultType="Account" parameterType="Account">
         select * from account where username=#{username} and password=#{password} and usertype=#{usertype}
     </select>
+
+    <insert id="UserRegister" parameterType="Account">
+        insert into account (username, password, usertype) VALUES (#{username},#{password},'业主用户')
+    </insert>
 </mapper>

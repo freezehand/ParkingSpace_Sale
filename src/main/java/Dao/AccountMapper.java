@@ -2,6 +2,9 @@ package Dao;
 
 import Pojo.Account;
 
+import java.util.Map;
+
 public interface AccountMapper {
-    public Account UserLogin(Account account);
+    Account UserLogin(Account account);
+    int UserRegister(Account account);
 }
