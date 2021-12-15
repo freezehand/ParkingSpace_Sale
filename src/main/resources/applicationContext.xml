@@ -43,6 +43,22 @@
         <property name="configLocation"
                   value="classpath:mybatis.xml"/>
         <property name="mapperLocations" value="classpath:Dao/*.xml"/>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+<!--                        <value>-->
+<!--                            helperDialect=mysql-->
+<!--                            reasonable=true-->
+<!--                        </value>-->
+                        <props>
+                            <prop key="helperDialect">mysql</prop>
+                            <prop key="reasonable">true</prop>
+                        </props>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
 
     <!-- 配置扫描包 加载mapper代理对象 -->
@@ -57,7 +73,6 @@
 
     <!-- 扫描Service包 -->
     <context:component-scan base-package="Service"/>
-
     <context:component-scan base-package="Pojo"/>
 
     <!--配置spring声明式事务管理-->

@@ -3,6 +3,7 @@ package Controller;
 import Common.encode;
 import Pojo.Account;
 import Pojo.Address;
+import Service.ParkingSpaceService;
 import Service.UserService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -24,12 +25,16 @@ public class IndexController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ParkingSpaceService parkingSpaceService;
+
     @RequestMapping("/login")
     public String userlogin(@ModelAttribute("account") Account account, Model model) {
         account.setPassword(encode.getcode(account.getPassword()));
        if(userService.userlogin(account)==1)
        {
            model.addAttribute("account",account);
+           model.addAttribute("ParkingSpaceList",parkingSpaceService.getAllParkingSpace());
            return "product";
        }
        else {
