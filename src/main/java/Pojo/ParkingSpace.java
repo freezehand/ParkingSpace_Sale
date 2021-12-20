@@ -8,10 +8,11 @@ public class ParkingSpace {
     String community;//小区
     String licenses;//车位证照信息
     String location;
-    String price;
+    double price;
     String discount;
     String state;
     String url;
+    String publisher;
 
     public String getId() {
         return id;
@@ -45,11 +46,11 @@ public class ParkingSpace {
         this.location = location;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -77,10 +78,18 @@ public class ParkingSpace {
         this.url = url;
     }
 
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
     public ParkingSpace() {
     }
 
-    public ParkingSpace(String id, String community, String licenses, String location, String price, String discount, String state, String url) {
+    public ParkingSpace(String id, String community, String licenses, String location, double price, String discount, String state, String url, String publisher) {
         this.id = id;
         this.community = community;
         this.licenses = licenses;
@@ -89,5 +98,6 @@ public class ParkingSpace {
         this.discount = discount;
         this.state = state;
         this.url = url;
+        this.publisher = publisher;
     }
 }

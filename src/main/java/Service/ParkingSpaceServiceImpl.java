@@ -14,7 +14,8 @@ public class ParkingSpaceServiceImpl implements ParkingSpaceService{
     private ParkingSpaceMapper parkingSpaceMapper;
 
     @Override
-    public List<ParkingSpace> getAllParkingSpace() {
-       return parkingSpaceMapper.GetAllParkingSpace();
-    }
+    public List<ParkingSpace> getAllParkingSpace() {return parkingSpaceMapper.GetAllParkingSpace();}
+
+    @Override
+    public ParkingSpace GetAllParkingSpaceById(String id) {return parkingSpaceMapper.GetAllParkingSpaceById(id);}
 }

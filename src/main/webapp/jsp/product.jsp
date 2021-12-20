@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="Pojo.ParkingSpace" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -23,7 +24,7 @@
   <nav class="navbar navbar-inverse" role="navigation">
     <div class="logo"></div>
     <a href="${pageContext.request.contextPath }/jsp/product.jsp">首页</a>
-    <a href="javascript:void(0)" onclick="phone('手机')">我的订单</a>
+    <a href="${pageContext.request.contextPath }/user/getorder?username=${account.username}">我的订单</a>
     <a href="javascript:void(0)" onclick="phone('平板')">消息通知</a>
     <a href="javascript:void(0)" onclick="phone('笔记本')">我的优惠卷</a>
     <a href="javascript:void(0)" onclick="phone('配件')">客服咨询</a>
@@ -50,25 +51,39 @@
 <section class="page">
 
     <aside id="aside" class="panel-group aside-menu">
-        <h3 class="type">手机</h3>
+        <h3 class="type">菜单</h3>
 <%--        <c:forEach items="${c2name}" var="p" varStatus="vs">--%>
             <dl class="panel panel-default">
-                <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" onclick="selsct(${p.code},${vs.index})">
-                    <i></i><span class="collapse-btn">2</span>
+                <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" >
+                  <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/product.jsp">首页</a></span>
                 </dt>
-
             </dl>
+        <dl class="panel panel-default">
+            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" onclick="selsct(${p.code},${vs.index})">
+                <span class="collapse-btn">我的订单</span>
+            </dt>
+        </dl>
+        <dl class="panel panel-default">
+            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" onclick="selsct(${p.code},${vs.index})">
+                <span class="collapse-btn">消息通知</span>
+            </dt>
+        </dl>
+        <dl class="panel panel-default">
+            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" onclick="selsct(${p.code},${vs.index})">
+                <span class="collapse-btn">我的优惠卷</span>
+            </dt>
+        </dl>
 <%--        </c:forEach>--%>
     </aside>
 
     <div class="content">
-        <c:forEach items="${ParkingSpaceList}" var="p" varStatus="vs">
+        <c:forEach items="${sessionScope.ParkingSpaceList}" var="p">
             <div class="product">
                 <img src="${pageContext.request.contextPath}/image/parkingspace/${p.url}" onclick="findProductById('${p.id}')">
                 <span class="brand">${p.location}</span>
                 <span class="price">${p.price}</span>
                 <span class="title">${p.state}</span>
-                <a href="${pageContext.request.contextPath}/ProductFindByIdServlet?id=${p.id}"><em class="fast-buy"></em></a>
+                <a href="${pageContext.request.contextPath}/parkingspace/getparkingspacebyid?id=${p.id}"><em class="fast-buy"></em></a>
             </div>
         </c:forEach>
     </div>

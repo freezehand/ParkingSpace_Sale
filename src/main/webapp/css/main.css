@@ -860,6 +860,7 @@ em.fast-buy:active {
     line-height: 26px;
     border: 2px solid #879dff;
     padding: 0 11px;
+    margin-left: 40px;
 }
 
 .product-details li a {

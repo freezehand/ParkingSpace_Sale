@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ParkingSpaceMapper {
     List<ParkingSpace> GetAllParkingSpace();
+    ParkingSpace GetAllParkingSpaceById(String id);
 }
