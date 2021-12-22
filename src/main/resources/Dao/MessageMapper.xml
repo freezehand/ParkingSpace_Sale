@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.MessageMapper">
+    <select id="UserGetMessage" resultType="Message" parameterType="Account">
+        select * from message where receiver=#{username} and state='已审核'
+    </select>
+</mapper>

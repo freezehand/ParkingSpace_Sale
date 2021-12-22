@@ -3,6 +3,8 @@ package Dao;
 import Pojo.Account;
 import Pojo.Order;
 
+import java.util.List;
+
 public interface OrderMapper {
-    Order GetOrderByUsername(Account account);
+    List<Order> GetOrderByUsername(Account account);
 }

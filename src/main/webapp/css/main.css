@@ -688,6 +688,7 @@ span.price {
     border-top: 0px dashed transparent;
 }
 
+
 span.price:before {
     content:"¥";
 }
@@ -1077,8 +1078,9 @@ aside i {
 /*页码END*/
 
 /*购物车*/
-section.Carts,section.order{
-    width: 1200px;
+section.Carts1,section.order{
+    padding-top: -500px;
+    width: 1400px;
     min-height: 600px;
     margin: 100px auto;
     position: relative;
@@ -1092,7 +1094,7 @@ section a{
     cursor: pointer;
 }
 
-section.Carts .head,section.order .head{
+section.Carts1 .head,section.order .head{
     height: 50px;
     font-size: 24px;
     letter-spacing: 5px;
@@ -1102,108 +1104,111 @@ section.Carts .head,section.order .head{
     border-bottom: #8195e4 4px solid;
 }
 
-section.Carts .title{
+section.Carts1 .title{
     height: 30px;
     line-height: 30px;
     margin-top: -10px;
 }
 
-section.Carts .title .Checkbox {
-    margin: -4px 5px 0 0;
-}
+/*section.Carts .title .Checkbox {*/
+/*    margin: -4px 5px 0 0;*/
+/*}*/
 
-section.Carts .carts-content .price{
+section.Carts1 .carts-content .price{
     font-size: 18px;
 }
 
-section.Carts .carts-content .Checkbox{
+section.Carts1 .carts-content .Checkbox{
     margin: 50px 40px;
 }
 
-section.Carts .carts-content li:nth-child(5){
+section.Carts1 .carts-content li:nth-child(5){
     padding-left: 35px;
 }
 
-section.Carts ul li{
+section.Carts1 ul li{
     float: left;
 }
 
-section.Carts .title ul li {
+section.Carts1 .title ul li {
     border-left: #8ca2f8 1px solid;
     text-align: center;
     border-bottom:  #8ca2f8 1px solid;
 }
 
-section.Carts ul li {
+section.Carts1 ul li {
     position: relative;
 }
-section.Carts .title ul li:last-child {
+section.Carts1 .title ul li:last-child {
     border-right: #8ca2f8 1px solid;
 }
 
-section.Carts ul li:first-child {
+section.Carts1 ul li:first-child {
     width: 100px;
 }
 
-section.Carts ul li:nth-child(2) {
+section.Carts1 ul li:nth-child(2) {
     width: 300px;
 }
 
-section.Carts ul li:nth-child(3) {
+section.Carts1 ul li:nth-child(3) {
     width: 200px;
 }
 
-section.Carts ul li:nth-child(4) {
+section.Carts1 ul li:nth-child(4) {
     width: 150px;
 }
 
-section.Carts ul li:nth-child(5) {
+section.Carts1 ul li:nth-child(5) {
     width: 200px;
     text-align: center;
 }
 
-section.Carts ul li:nth-child(6) {
+section.Carts1 ul li:nth-child(6) {
     width: 150px;
 }
 
-section.Carts ul li:nth-child(7) {
+section.Carts1 ul li:nth-child(7) {
+    width: 200px;
+}
+section.Carts1 ul li:nth-child(8) {
     width: 100px;
 }
 
-section.Carts .carts-content > ul {
+section.Carts1 .carts-content > ul {
     background: #eee;
     height: 150px;
     border-top: #686868 1px dashed;
 }
 
-section.Carts .carts-content ul li:nth-child(7) {
+section.Carts1 .carts-content ul li:nth-child(7) {
     padding-top: 55px;
     padding-left: 30px;
 }
 
-section.Carts .carts-content > ul:first-child {
+section.Carts1 .carts-content > ul:first-child {
     border-top-color: transparent;
 }
 
-section.Carts .carts-content > ul > li {
+section.Carts1 .carts-content > ul > li {
     height: 150px;
 }
 
-section.Carts .carts-content ul li img {
+section.Carts1 .carts-content ul li img {
     width: 100px;
     height: 100px;
     margin-top: 25px;
     margin-left: 10px;
 }
 
-section.Carts .carts-content .carts-details {
+section.Carts1 .carts-content .carts-details {
     position: absolute;
     right: 10px;
     top: 25px;
     width: 170px;
 }
 
-section.Carts .carts-content ul.carts-type {
+section.Carts1 .carts-content ul.carts-type {
     padding-top: 25px;
     width: 170px;
     font-size: 12px;
@@ -1221,53 +1226,60 @@ section.Carts .carts-content ul.carts-type {
     color: #7e7e7e;
 }
 
-section.Carts .carts-content ul span.price {
+section.Carts1 .carts-content ul span.price {
     position: absolute;
     top: 50px;
     left: 30px;
 }
 
-section.Carts .carts-content ul li input {
+section.Carts1 .carts-content ul span.message {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    color: #8195e4;
+}
+
+section.Carts1 .carts-content ul li input {
     margin-top: 50px;
 }
 
-section.Carts .carts-foot ul{
+section.Carts1 .carts-foot ul{
     height: 60px;
     background: #d4d4d4;
     border-top: #8195e4 4px solid;
     margin-top: -10px;
 }
 
-section.Carts .carts-foot ul li:nth-child(1){
+section.Carts1 .carts-foot ul li:nth-child(1){
     padding-top: 14px;
     padding-left: 25px;
 }
 
-section.Carts .carts-foot ul li:nth-child(2){
+section.Carts1 .carts-foot ul li:nth-child(2){
     width: 160px;
     padding-top: 14px;
 }
 
-section.Carts .carts-foot ul li:nth-child(2){
+section.Carts1 .carts-foot ul li:nth-child(2){
     width: 390px;
 }
 
-section.Carts .carts-foot ul li:nth-child(4){
+section.Carts1 .carts-foot ul li:nth-child(4){
     padding-top: 5px;
 }
 
-section.Carts .carts-foot ul li:nth-child(4) span.count{
+section.Carts1 .carts-foot ul li:nth-child(4) span.count{
     color: #ffb95c;
     font-size: 25px;
     letter-spacing: 5px;
     padding: 10px;
 }
 
-section.Carts .carts-foot ul li .price{
+section.Carts1 .carts-foot ul li .price{
     font-size: 26px;
 }
 
-section.Carts .carts-foot ul li a.sum{
+section.Carts1 .carts-foot ul li a.sum{
     height: 56px;
     width: 160px;
     display: block;
@@ -1280,10 +1292,409 @@ section.Carts .carts-foot ul li a.sum{
     cursor: not-allowed;
 }
 
-section.Carts .carts-foot ul li a.sum:hover{
+section.Carts1 .carts-foot ul li a.sum:hover{
     opacity: 0.8;
 }
 /*购物车END*/
+
+
+/*message*/
+section.message1,section.order{
+    padding-top: -500px;
+    width: 1400px;
+    min-height: 600px;
+    margin: 100px auto;
+    position: relative;
+}
+
+section > div {
+    width: 100%;
+}
+
+section a{
+    cursor: pointer;
+}
+
+section.message1 .head,section.order .head{
+    height: 50px;
+    font-size: 24px;
+    letter-spacing: 5px;
+    line-height: 50px;
+    padding-left: 20px;
+    background: #d4d4d4;
+    border-bottom: #8195e4 4px solid;
+}
+
+section.message1 .title{
+    height: 30px;
+    line-height: 30px;
+    margin-top: -10px;
+}
+
+/*section.Carts .title .Checkbox {*/
+/*    margin: -4px 5px 0 0;*/
+/*}*/
+
+section.message1 .carts-content .price{
+    font-size: 18px;
+}
+
+section.message1 .carts-content .Checkbox{
+    margin: 50px 40px;
+}
+
+section.message1 .carts-content li:nth-child(5){
+    padding-left: 35px;
+}
+
+section.message1 ul li{
+    float: left;
+}
+
+section.message1 .title ul li {
+    border-left: #8ca2f8 1px solid;
+    text-align: center;
+    border-bottom:  #8ca2f8 1px solid;
+}
+
+section.message1 ul li {
+    position: relative;
+}
+section.message1 .title ul li:last-child {
+    border-right: #8ca2f8 1px solid;
+}
+
+section.message1 ul li:first-child {
+    width: 100px;
+}
+
+section.message1 ul li:nth-child(2) {
+    width: 1300px;
+}
+
+/*coupons*/
+section.coupons,section.order{
+    padding-top: -500px;
+    width: 1400px;
+    min-height: 600px;
+    margin: 100px auto;
+    position: relative;
+}
+
+section > div {
+    width: 100%;
+}
+
+section a{
+    cursor: pointer;
+}
+
+section.coupons .head,section.order .head{
+    height: 50px;
+    font-size: 24px;
+    letter-spacing: 5px;
+    line-height: 50px;
+    padding-left: 20px;
+    background: #d4d4d4;
+    border-bottom: #8195e4 4px solid;
+}
+
+section.coupons .title{
+    height: 30px;
+    line-height: 30px;
+    margin-top: -10px;
+}
+
+/*section.Carts .title .Checkbox {*/
+/*    margin: -4px 5px 0 0;*/
+/*}*/
+
+section.coupons .carts-content .price{
+    font-size: 18px;
+}
+
+section.coupons .carts-content .Checkbox{
+    margin: 50px 40px;
+}
+
+section.coupons .carts-content li:nth-child(5){
+    padding-left: 35px;
+}
+
+section.coupons ul li{
+    float: left;
+}
+
+section.coupons .title ul li {
+    border-left: #8ca2f8 1px solid;
+    text-align: center;
+    border-bottom:  #8ca2f8 1px solid;
+}
+
+section.coupons ul li {
+    position: relative;
+}
+section.coupons .title ul li:last-child {
+    border-right: #8ca2f8 1px solid;
+}
+
+section.coupons ul li:first-child {
+    width: 100px;
+}
+
+section.coupons ul li:nth-child(2) {
+    width: 1000px;
+}
+
+section.coupons ul li:nth-child(3) {
+    width: 300px;
+}
+
+
+section.coupons .carts-content > ul {
+    background: #eee;
+    height: 150px;
+    border-top: #686868 1px dashed;
+}
+
+section.coupons .carts-content ul li:nth-child(7) {
+    padding-top: 55px;
+    padding-left: 30px;
+}
+
+section.coupons .carts-content > ul:first-child {
+    border-top-color: transparent;
+}
+
+section.coupons .carts-content > ul > li {
+    height: 150px;
+}
+
+section.coupons .carts-content ul li img {
+    width: 100px;
+    height: 100px;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+section.coupons .carts-content .carts-details {
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    width: 170px;
+}
+
+section.coupons .carts-content ul.carts-type {
+    padding-top: 25px;
+    width: 170px;
+    font-size: 12px;
+}
+
+.carts-type li span {
+    color: #686868;
+}
+
+.carts-type li span:after {
+    content: "：";
+}
+
+.carts-type li a {
+    color: #7e7e7e;
+}
+
+section.coupons .carts-content ul span.price {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+}
+
+section.coupons .carts-content ul span.message {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    color: #8195e4;
+}
+
+section.coupons .carts-content ul li input {
+    margin-top: 50px;
+}
+
+section.coupons .carts-foot ul{
+    height: 60px;
+    background: #d4d4d4;
+    border-top: #8195e4 4px solid;
+    margin-top: -10px;
+}
+
+section.coupons .carts-foot ul li:nth-child(1){
+    padding-top: 14px;
+    padding-left: 25px;
+}
+
+section.coupons .carts-foot ul li:nth-child(2){
+    width: 160px;
+    padding-top: 14px;
+}
+
+section.coupons .carts-foot ul li:nth-child(2){
+    width: 390px;
+}
+
+section.coupons .carts-foot ul li:nth-child(4){
+    padding-top: 5px;
+}
+
+section.coupons .carts-foot ul li:nth-child(4) span.count{
+    color: #ffb95c;
+    font-size: 25px;
+    letter-spacing: 5px;
+    padding: 10px;
+}
+
+section.coupons .carts-foot ul li .price{
+    font-size: 26px;
+}
+
+section.coupons .carts-foot ul li a.sum{
+    height: 56px;
+    width: 160px;
+    display: block;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 10px;
+    line-height: 56px;
+    text-align: center;
+    background: #686868;
+    cursor: not-allowed;
+}
+
+section.coupons .carts-foot ul li a.sum:hover{
+    opacity: 0.8;
+}
+/*couponsEND*/
+
+section.message1 .carts-content > ul {
+    background: #eee;
+    height: 150px;
+    border-top: #686868 1px dashed;
+}
+
+section.message1 .carts-content ul li:nth-child(7) {
+    padding-top: 55px;
+    padding-left: 30px;
+}
+
+section.message1 .carts-content > ul:first-child {
+    border-top-color: transparent;
+}
+
+section.message1 .carts-content > ul > li {
+    height: 150px;
+}
+
+section.message1 .carts-content ul li img {
+    width: 100px;
+    height: 100px;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+section.message1 .carts-content .carts-details {
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    width: 170px;
+}
+
+section.message1 .carts-content ul.carts-type {
+    padding-top: 25px;
+    width: 170px;
+    font-size: 12px;
+}
+
+.carts-type li span {
+    color: #686868;
+}
+
+.carts-type li span:after {
+    content: "：";
+}
+
+.carts-type li a {
+    color: #7e7e7e;
+}
+
+section.message1 .carts-content ul span.price {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+}
+
+section.message1 .carts-content ul span.message {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    color: #8195e4;
+}
+
+section.message1 .carts-content ul li input {
+    margin-top: 50px;
+}
+
+section.message1 .carts-foot ul{
+    height: 60px;
+    background: #d4d4d4;
+    border-top: #8195e4 4px solid;
+    margin-top: -10px;
+}
+
+section.message1 .carts-foot ul li:nth-child(1){
+    padding-top: 14px;
+    padding-left: 25px;
+}
+
+section.message1 .carts-foot ul li:nth-child(2){
+    width: 160px;
+    padding-top: 14px;
+}
+
+section.message1 .carts-foot ul li:nth-child(2){
+    width: 390px;
+}
+
+section.message1 .carts-foot ul li:nth-child(4){
+    padding-top: 5px;
+}
+
+section.message1 .carts-foot ul li:nth-child(4) span.count{
+    color: #ffb95c;
+    font-size: 25px;
+    letter-spacing: 5px;
+    padding: 10px;
+}
+
+section.message1 .carts-foot ul li .price{
+    font-size: 26px;
+}
+
+section.message1 .carts-foot ul li a.sum{
+    height: 56px;
+    width: 160px;
+    display: block;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 10px;
+    line-height: 56px;
+    text-align: center;
+    background: #686868;
+    cursor: not-allowed;
+}
+
+section.message1 .carts-foot ul li a.sum:hover{
+    opacity: 0.8;
+}
+/*messageEND*/
+
 
 /*订单页面*/
 section.order li{

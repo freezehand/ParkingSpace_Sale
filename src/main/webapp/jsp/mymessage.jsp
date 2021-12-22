@@ -1,21 +1,22 @@
-<%@ page import="Pojo.Account" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: 尘起
-  Date: 2021/12/16
-  Time: 11:59
+  Date: 2021/12/21
+  Time: 15:06
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>车位详细信息</title>
+    <meta charset="UTF-8">
+    <title>车位在线售卖系统</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/main.css">
+    <title>我的消息</title>
 </head>
 <body>
-<%--<%--%>
-<%--    Account account=(Account) session.getAttribute("account");--%>
-<%--%>--%>
 <div id="preloader" >
     <div id="status" ></div>
 </div>
@@ -30,9 +31,9 @@
         <span class="slider-bar"></span>
         <i class="carts" onclick="tocart()"></i>
         <span>
-            <c:if test="${not empty account }">
-                <h4 class="user">${account.username}</h4>
-                <a class="logout" href="${pageContext.request.contextPath}/user/logout">注销</a>
+        <c:if test="${not empty account }">
+            <h4 class="user">${account.username}</h4>
+            <a class="logout" href="${pageContext.request.contextPath}/user/logout">注销</a>
         </c:if>
 
         <c:if test="${ empty account }">
@@ -47,39 +48,31 @@
     </nav>
 </header>
 
-<section class="w">
-    <div class="product-img">
-        <div class="view">
-            <img src="${pageContext.request.contextPath}/image/parkingspace/${ParkingSpace.url}">
-        </div>
-    </div>
-    <div class="product-details">
-        <h1>${ParkingSpace.location}</h1>
-        <p class="re"><span>车位编号：</span><span>${ParkingSpace.id}</span></p>
-        <p class="price" data-price="3649">
-            <span>价格</span>
-            <span class="price">${ParkingSpace.price }</span>
-        </p>
-        <ul class="details">
-            <li><span>小区</span><a class="u-check n-check">${ParkingSpace.community}</a></li>
-            <li><span>车位证照信息</span><a class="u-check n-check">${ParkingSpace.licenses}</a></li>
-            <li><span>折扣信息</span><a class="u-check n-check">${ParkingSpace.discount}</a></li>
-            <li><span>车位状态</span><a class="u-check n-check">${ParkingSpace.state}</a></li>
-            <li><span>发布者</span><a class="u-check n-check">${ParkingSpace.publisher}</a></li>
+<section class="message1">
+    <div class="head">我的消息</div>
+    <div class="title">
+        <ul>
+            <li>消息编号</li>
+            <li>信息</li>
         </ul>
-        <div class="action">
-            <a class="buy"	href="fastbuy.jsp">立即购买</a>
-            <a class="addCar" onclick="addProductToCart('${pro.id}')"><i></i>加入购物车</a>
-        </div>
     </div>
+    <div class="carts-content">
+        <c:forEach items="${mymessagelist}" var="c">
+            <ul>
+                <li><span class="message">${c.id}</span></li>
+                <li><span class="message">${c.content}</span></li>
+            </ul>
+        </c:forEach>
+    </div >
 </section>
+
 <aside class="aside-tool">
     <ul>
         <li class="customer">
             <a href="http://wpa.qq.com/msgrd?v=3&uin=476759153&site=qq&menu=yes" target=_blank
                clickid=guanwang_navigation_customer>联系客服</a>
         </li>
-        <li class="top"></li>
+            <li class="top"></li>
     </ul>
 </aside>
 <footer>
@@ -93,13 +86,6 @@
         </ul>
     </div>
 </footer>
-<script type="text/javascript">
-    function addProductToCart(id){
-
-        location.href="${pageContext.request.contextPath}/AddProductToCartServlet?id="+id;
-    }
-</script>
-
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-ui.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
@@ -107,5 +93,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/main.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/onloada.js"></script>
+
 </body>
 </html>

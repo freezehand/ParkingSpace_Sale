@@ -60,9 +60,24 @@ public class IndexController {
         }
 
     }
+    @RequestMapping("/logout")
+    public String userlogout(HttpSession session){
+        session.removeAttribute("account");
+        return "login";
+    }
     @RequestMapping("/getorder")
     public String usergetorder(@ModelAttribute("account")Account account,Model model){
-        model.addAttribute("myorder",userService.getOrder(account));
+        model.addAttribute("myorderlist",userService.getOrder(account));
         return "myorder";
+    }
+    @RequestMapping("/getmessage")
+    public String usergetmessage(@ModelAttribute("account")Account account,Model model){
+        model.addAttribute("mymessagelist",userService.usergetmessage(account));
+        return "mymessage";
+    }
+    @RequestMapping("/getcoupons")
+    public String usergetcoupons(@ModelAttribute("account")Account account,Model model){
+        model.addAttribute("mycouponslist",userService.usergetcoupons(account));
+        return "mycoupons";
     }
 }

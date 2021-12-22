@@ -1,14 +1,11 @@
 package Service;
 
-import Dao.AccountMapper;
-import Dao.AddressMapper;
-import Dao.OrderMapper;
-import Pojo.Account;
-import Pojo.Address;
-import Pojo.Order;
+import Dao.*;
+import Pojo.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 @Service("UserService")
@@ -20,6 +17,10 @@ public class UserServiceImpl implements UserService{
     private AddressMapper addressMapper;
     @Resource
     private OrderMapper orderMapper;
+    @Resource
+    private MessageMapper messageMapper;
+    @Resource
+    private CouponsMapper couponsMapper;
 
     @Override
     public int userlogin(Account account){
@@ -45,9 +46,19 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Order getOrder(Account account){
-        Order order=orderMapper.GetOrderByUsername(account);
+    public List<Order> getOrder(Account account){
+//        List<Order> order=orderMapper.GetOrderByUsername(account);
         return orderMapper.GetOrderByUsername(account);
+    }
+
+    @Override
+    public List<Message> usergetmessage(Account account) {
+        return messageMapper.UserGetMessage(account);
+    }
+
+    @Override
+    public List<Coupons> usergetcoupons(Account account) {
+        return couponsMapper.UserGetCoupons(account);
     }
 
 }

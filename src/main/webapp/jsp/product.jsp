@@ -25,15 +25,15 @@
     <div class="logo"></div>
     <a href="${pageContext.request.contextPath }/jsp/product.jsp">首页</a>
     <a href="${pageContext.request.contextPath }/user/getorder?username=${account.username}">我的订单</a>
-    <a href="javascript:void(0)" onclick="phone('平板')">消息通知</a>
-    <a href="javascript:void(0)" onclick="phone('笔记本')">我的优惠卷</a>
+    <a href="${pageContext.request.contextPath }/user/getmessage?username=${account.username}">消息通知</a>
+    <a href="${pageContext.request.contextPath }/user/getcoupons?username=${account.username}">我的优惠券</a>
     <a href="javascript:void(0)" onclick="phone('配件')">客服咨询</a>
     <span class="slider-bar"></span>
     <i class="carts" onclick="tocart()"></i>
     <span>
         <c:if test="${not empty account }">
             <h4 class="user">${account.username}</h4>
-            <a class="logout" href="${pageContext.request.contextPath}/#">注销</a>
+            <a class="logout" href="${pageContext.request.contextPath}/user/logout">注销</a>
         </c:if>
 
         <c:if test="${ empty account }">
@@ -59,18 +59,18 @@
                 </dt>
             </dl>
         <dl class="panel panel-default">
-            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" onclick="selsct(${p.code},${vs.index})">
-                <span class="collapse-btn">我的订单</span>
+            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside">
+                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/user/getorder?username=${account.username}">我的订单</a></span>
             </dt>
         </dl>
         <dl class="panel panel-default">
-            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" onclick="selsct(${p.code},${vs.index})">
-                <span class="collapse-btn">消息通知</span>
+            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" >
+                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/user/getmessage?username=${account.username}">消息通知</a></span>
             </dt>
         </dl>
         <dl class="panel panel-default">
-            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" onclick="selsct(${p.code},${vs.index})">
-                <span class="collapse-btn">我的优惠卷</span>
+            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside">
+                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/user/getcoupons?username=${account.username}">我的优惠券</a></span>
             </dt>
         </dl>
 <%--        </c:forEach>--%>
