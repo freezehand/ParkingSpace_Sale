@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: 尘起
-  Date: 2021/12/21
-  Time: 21:50
+  Date: 2021/12/23
+  Time: 20:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>业务人员管理界面</title>
+    <title>业务人员新增停车位</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/main.css">
@@ -67,17 +67,56 @@
         <%--        </c:forEach>--%>
     </aside>
     <div class="content">
-        <c:forEach items="${sessionScope.ParkingSpaceList}" var="p">
-            <div class="product">
-                <img src="${pageContext.request.contextPath}/image/parkingspace/${p.url}" onclick="findProductById('${p.id}')">
-                <span class="brand">${p.location}</span>
-                <span class="price">${p.price}</span>
-                <span class="title">${p.state}</span>
-                <a href="${pageContext.request.contextPath}/parkingspace/getparkingspacebyid?id=${p.id}"><em class="query"></em></a>
-            </div>
-        </c:forEach>
+        <form action="${pageContext.request.contextPath}/ProductAddServlet"
+              method="post" encType="multipart/form-data" id="add">
+            <table border="1" align="center">
+                <tr style="display:none">
+                    <td>id</td>
+                    <td><input type="text" name="id"></td>
+                </tr>
+                <tr>
+                    <td>小区名</td>
+                    <td><input type="text" name="name" value="123"></td>
+                </tr>
+                <tr>
+                    <td>商品价格</td>
+                    <td><input type="text" name="price"></td>
+                </tr>
+                <tr>
+                    <td>商品数量</td>
+                    <td><input type="text" name="pnum">
+                        <input type="hidden" name="c3code" id="c3code"></td>
+                </tr>
+                <tr>
+
+                </tr>
+                <tr>
+                    <td>商品图片</td>
+                    <td><input type="file" name="f"></td>
+                </tr>
+                <tr>
+                    <td>商品颜色</td>
+                    <td><input type="text" name="color"></td>
+                </tr>
+                <tr>
+                    <td>商品描述</td>
+                    <td><textarea rows="10" cols="20" name="description"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><input type="button" value="添加" onclick="add()">&nbsp;&nbsp;
+                        <input type="reset" value="取消" onclick="cancel()">
+                    </td>
+
+                </tr>
+
+            </table>
+        </form>
     </div>
 </section>
+
+
 <aside class="aside-tool">
     <ul>
         <li class="customer">
@@ -105,6 +144,5 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/main.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/onloada.js"></script>
-
 </body>
 </html>

@@ -3,6 +3,7 @@ package Controller;
 import Common.encode;
 import Pojo.Account;
 import Pojo.Address;
+import Service.BusinessService;
 import Service.ParkingSpaceService;
 import Service.UserService;
 import org.apache.commons.logging.Log;
@@ -29,6 +30,9 @@ public class IndexController {
     @Autowired
     private ParkingSpaceService parkingSpaceService;
 
+    @Autowired
+    private BusinessService businessService;
+
 
     @RequestMapping("/login")
     public String userlogin(@ModelAttribute("account") Account account, Model model, HttpSession session) {
@@ -36,13 +40,20 @@ public class IndexController {
        if(userService.userlogin(account)==1)
        {
            session.setAttribute("account",account);
-           session.setAttribute("ParkingSpaceList",parkingSpaceService.getAllParkingSpace());
-           return "product";
+           if(account.getUsertype().equals("业主用户")) {
+               session.setAttribute("ParkingSpaceList",parkingSpaceService.getAllParkingSpace());
+               return "product";
+           }
+         else if(account.getUsertype().equals("业务人员")) {
+             session.setAttribute("ParkingSpaceList",businessService.GetBusinessParkingSpace(account));
+             return "business_main";
+           }
        }
        else {
            model.addAttribute("message","登录失败");
            return "login";
        }
+        return "login";
     }
 
     @RequestMapping("/register")

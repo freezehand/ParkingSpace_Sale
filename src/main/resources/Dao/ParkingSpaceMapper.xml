@@ -9,4 +9,7 @@
     <select id="GetAllParkingSpaceById" resultType="ParkingSpace" parameterType="java.lang.String">
         select * from parkingspace where id=#{id}
     </select>
+    <select id="GetBusinessParkingSpace" resultType="ParkingSpace">
+        select * from parkingspace where publisher=#{username}
+    </select>
 </mapper>

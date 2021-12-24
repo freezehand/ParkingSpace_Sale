@@ -741,6 +741,36 @@ em.fast-buy:active {
     box-shadow: 0 0px 1px 0.2px #aaa;
 }
 
+.product:hover em.query {
+    display: block;
+}
+em.query {
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    left: calc(50% - 75px);
+    bottom: 20px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-align: center;
+    background: #8097ec;
+    border-radius: 2px;
+    cursor: pointer;
+    line-height: 30px;
+    color: #fff;
+    display: none;
+    box-shadow: 0 1px 1px 0.2px #aaa;
+}
+
+em.query:before {
+    font-style: normal;
+    content: "修改";
+}
+
+em.query:active {
+    box-shadow: 0 0px 1px 0.2px #aaa;
+}
+
 /*商品模块END*/
 
 /*购买页面*/
