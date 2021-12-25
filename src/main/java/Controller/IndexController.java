@@ -33,6 +33,12 @@ public class IndexController {
     @Autowired
     private BusinessService businessService;
 
+    @RequestMapping("flash")
+    public String flash(Model model,HttpSession session){
+        Account account=(Account) session.getAttribute("account");
+        session.setAttribute("ParkingSpaceList",businessService.GetBusinessParkingSpace(account));
+        return "business_main";
+    }
 
     @RequestMapping("/login")
     public String userlogin(@ModelAttribute("account") Account account, Model model, HttpSession session) {

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface MessageMapper {
     List<Message> UserGetMessage(Account account);
+    int AddMessage(Message message);
 }

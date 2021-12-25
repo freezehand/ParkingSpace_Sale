@@ -12,4 +12,21 @@
     <select id="GetBusinessParkingSpace" resultType="ParkingSpace">
         select * from parkingspace where publisher=#{username}
     </select>
+
+    <insert id="AddParkingSpace" parameterType="ParkingSpace">
+        insert into parkingspace(community, licenses, location, price, discount, state,publisher)
+        VALUES (#{community},#{licenses},#{location},#{price},#{discount},'待审核',#{publisher})
+    </insert>
+    <update id="AddParkingSpaceUrl" parameterType="ParkingSpace">
+        update parkingspace set url=#{url} where id=#{id}
+    </update>
+    <select id="AddParkingSpaceGetId" resultType="ParkingSpace">
+        select * from parkingspace order by id desc limit 1
+    </select>
+
+    <update id="ModifyParkingSpaceById" parameterType="ParkingSpace">
+        update parkingspace set community=#{community},licenses=#{licenses},location=#{location},price=#{price},discount=#{discount} ,state='待审核'
+        where id=#{id}
+    </update>
+
 </mapper>

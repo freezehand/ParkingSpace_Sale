@@ -21,8 +21,8 @@
 <header>
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="logo"></div>
-        <a href="${pageContext.request.contextPath }/jsp/product.jsp">我的车位发布</a>
-        <a href="${pageContext.request.contextPath }/user/getorder?username=${account.username}">我的消息发布</a>
+        <a href="${pageContext.request.contextPath }/jsp/business_main.jsp">我的车位发布</a>
+        <a href="${pageContext.request.contextPath }/jsp/getorder?username=${account.username}">我的消息发布</a>
         <a href="${pageContext.request.contextPath }/user/getmessage?username=${account.username}">我的优惠券发布</a>
         <a href="${pageContext.request.contextPath }/user/getcoupons?username=${account.username}">我的订单</a>
         <span class="slider-bar"></span>
@@ -51,12 +51,12 @@
         <%--        <c:forEach items="${c2name}" var="p" varStatus="vs">--%>
         <dl class="panel panel-default">
             <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" >
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/product.jsp">发布新车位</a></span>
+                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addparkingspace.jsp">发布新车位</a></span>
             </dt>
         </dl>
         <dl class="panel panel-default">
             <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside">
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/user/getorder?username=${account.username}">发布新消息</a></span>
+                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addmessage.jsp">发布新消息</a></span>
             </dt>
         </dl>
         <dl class="panel panel-default">
@@ -73,7 +73,7 @@
                 <span class="brand">${p.location}</span>
                 <span class="price">${p.price}</span>
                 <span class="title">${p.state}</span>
-                <a href="${pageContext.request.contextPath}/parkingspace/getparkingspacebyid?id=${p.id}"><em class="query"></em></a>
+                <a href="${pageContext.request.contextPath}/business/modifyparkingspacebyid?id=${p.id}"><em class="query"></em></a>
             </div>
         </c:forEach>
     </div>

@@ -6,4 +6,9 @@
     <select id="UserGetMessage" resultType="Message" parameterType="Account">
         select * from message where receiver=#{username} and state='已审核'
     </select>
+    
+    <insert id="AddMessage" parameterType="Message">
+        insert into message(sender, receiver, content, state)
+        VALUES (#{sender},#{receiver},#{content},'待审核')
+    </insert>
 </mapper>

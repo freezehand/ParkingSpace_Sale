@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: 尘起
-  Date: 2021/12/23
-  Time: 20:57
+  Date: 2021/12/25
+  Time: 15:44
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>业务人员新增停车位</title>
+    <title>业务人员修改停车位</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/main.css">
@@ -67,42 +67,37 @@
         <%--        </c:forEach>--%>
     </aside>
     <div class="content">
-        <form action="${pageContext.request.contextPath}/business/addParkingSpace" method="post"
-               enctype="multipart/form-data">
+        <form action="${pageContext.request.contextPath}/business/modifyParkingSpace" method="post">
             <table border="1" align="center">
                 <tr style="display:none">
                     <td>id</td>
-                    <td><input type="text" name="id"></td>
+                    <td><input type="text" name="id" value="${ParkingSpace.id}"></td>
                 </tr>
                 <tr>
                     <td>小区名</td>
-                    <td><input type="text" name="community"></td>
+                    <td><input type="text" name="community" value="${ParkingSpace.community}"></td>
                 </tr>
                 <tr>
                     <td>证照信息</td>
-                    <td><input type="text" name="licenses"></td>
+                    <td><input type="text" name="licenses" value="${ParkingSpace.licenses}"></td>
                 </tr>
                 <tr>
                     <td>地址</td>
-                    <td><input type="text" name="location"></td>
+                    <td><input type="text" name="location" value="${ParkingSpace.location}"></td>
                 </tr>
                 <tr>
                     <td>价格</td>
-                    <td><input type="text" name="price"></td>
+                    <td><input type="text" name="price" value="${ParkingSpace.price}"></td>
                 </tr>
                 <tr>
                     <td>折扣</td>
                     <td>
                         <select name="discount">
-                        <option value="九五折">九五折</option>
-                        <option value="九折">九折</option>
-                        <option value="无折扣" selected="selected">无折扣</option>
+                            <option value="九五折">九五折</option>
+                            <option value="九折">九折</option>
+                            <option value="无折扣" selected="selected">无折扣</option>
                         </select>
                     </td>
-                </tr>
-                <tr>
-                    <td>商品图片</td>
-                    <td><input type="file" name="file"></td>
                 </tr>
                 <tr>
                     <td colspan="2">
