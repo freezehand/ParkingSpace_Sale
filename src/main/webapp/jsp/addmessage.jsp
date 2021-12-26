@@ -21,9 +21,9 @@
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="logo"></div>
         <a href="${pageContext.request.contextPath }/jsp/business_main.jsp">我的车位发布</a>
-        <a href="${pageContext.request.contextPath }/user/getorder?username=${account.username}">我的消息发布</a>
-        <a href="${pageContext.request.contextPath }/user/getmessage?username=${account.username}">我的优惠券发布</a>
-        <a href="${pageContext.request.contextPath }/user/getcoupons?username=${account.username}">我的订单</a>
+        <a href="${pageContext.request.contextPath }/business/getbusinessmessage?username=${account.username}">我的消息发布</a>
+        <a href="${pageContext.request.contextPath }/business/getbusinesscoupons?username=${account.username}">我的优惠券发布</a>
+        <a href="${pageContext.request.contextPath }/business/getbusinessorder?username=${account.username}">我的订单</a>
         <span class="slider-bar"></span>
         <i class="carts" onclick="tocart()"></i>
         <span>
@@ -61,7 +61,7 @@
         </dl>
         <dl class="panel panel-default">
             <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" >
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/user/getmessage?username=${account.username}">发布新优惠券</a></span>
+                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addcoupons.jsp">发布新优惠券</a></span>
             </dt>
         </dl>
         <%--        </c:forEach>--%>

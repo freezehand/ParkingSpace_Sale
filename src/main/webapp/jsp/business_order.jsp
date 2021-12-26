@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: 尘起
-  Date: 2021/12/21
-  Time: 21:50
+  Date: 2021/12/26
+  Time: 14:32
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>业务人员管理界面</title>
+    <title>业务人员查看订单</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/main.css">
@@ -44,49 +44,48 @@
     </span>
     </nav>
 </header>
-<section class="page">
 
-    <aside id="aside" class="panel-group aside-menu">
-        <h3 class="type">菜单</h3>
-        <%--        <c:forEach items="${c2name}" var="p" varStatus="vs">--%>
-        <dl class="panel panel-default">
-            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" >
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addparkingspace.jsp">发布新车位</a></span>
-            </dt>
-        </dl>
-        <dl class="panel panel-default">
-            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside">
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addmessage.jsp">发布新消息</a></span>
-            </dt>
-        </dl>
-        <dl class="panel panel-default">
-            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" >
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addcoupons.jsp">发布新优惠券</a></span>
-            </dt>
-        </dl>
-        <%--        </c:forEach>--%>
-    </aside>
-    <div class="content">
-        <c:forEach items="${sessionScope.ParkingSpaceList}" var="p">
-            <div class="product">
-                <img src="${pageContext.request.contextPath}/image/parkingspace/${p.url}" onclick="findProductById('${p.id}')">
-                <span class="brand">${p.location}</span>
-                <span class="price">${p.price}</span>
-                <span class="title">${p.state}</span>
-                <a href="${pageContext.request.contextPath}/business/modifyparkingspacebyid?id=${p.id}"><em class="query"></em></a>
-            </div>
-        </c:forEach>
+<section class="Carts1">
+    <div class="head">我的订单</div>
+    <div class="title">
+        <ul>
+            <li>车位编号</li>
+            <li>车位信息</li>
+            <li>车位原价</li>
+            <li>车位折扣</li>
+            <li>订单状态</li>
+            <li>订单时间</li>
+            <li>最终价格</li>
+            <li>操作</li>
+        </ul>
     </div>
+    <div class="carts-content">
+        <c:forEach items="${businessorderlist}" var="c">
+            <ul>
+                <li><span class="message">${c.id}</span></li>
+                <li>
+                    <img src="${pageContext.request.contextPath}/image/parkingspace/${c.parkingSpace.url}">
+                    <div class="carts-details">
+                        <span>小区:</span><a>${c.parkingSpace.community}</a></br>
+                        <span>证照信息:</span><a>${c.parkingSpace.licenses}</a></br>
+                        <span>位置:</span><a>${c.parkingSpace.location}</a>
+                    </div>
+                </li>
+                <li><span class="price">${c.parkingSpace.price}</span></li>
+                <li><span class="message">${c.parkingSpace.discount}</span></li>
+                <li><span class="message">${c.state}</span></li>
+                <li><span class="message">${c.orderTime}</span></li>
+                <li><span class="price">${c.price}</span></li>
+                <li>
+                    <span class="message">
+                    <a	href="${pageContext.request.contextPath}/user/download" >打印合同</a>
+                    </span>
+                </li>
+            </ul>
+        </c:forEach>
+    </div >
 </section>
-<aside class="aside-tool">
-    <ul>
-        <li class="customer">
-            <a href="http://wpa.qq.com/msgrd?v=3&uin=476759153&site=qq&menu=yes" target=_blank
-               clickid=guanwang_navigation_customer>联系客服</a>
-        </li>
-        <li class="top"></li>
-    </ul>
-</aside>
+
 <footer>
     <div>
         <ul>

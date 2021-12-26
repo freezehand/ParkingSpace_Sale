@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 尘起
-  Date: 2021/12/21
-  Time: 21:50
+  Date: 2021/12/26
+  Time: 10:52
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -44,40 +44,30 @@
     </span>
     </nav>
 </header>
-<section class="page">
-
-    <aside id="aside" class="panel-group aside-menu">
-        <h3 class="type">菜单</h3>
-        <%--        <c:forEach items="${c2name}" var="p" varStatus="vs">--%>
-        <dl class="panel panel-default">
-            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" >
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addparkingspace.jsp">发布新车位</a></span>
-            </dt>
-        </dl>
-        <dl class="panel panel-default">
-            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside">
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addmessage.jsp">发布新消息</a></span>
-            </dt>
-        </dl>
-        <dl class="panel panel-default">
-            <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" >
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addcoupons.jsp">发布新优惠券</a></span>
-            </dt>
-        </dl>
-        <%--        </c:forEach>--%>
-    </aside>
-    <div class="content">
-        <c:forEach items="${sessionScope.ParkingSpaceList}" var="p">
-            <div class="product">
-                <img src="${pageContext.request.contextPath}/image/parkingspace/${p.url}" onclick="findProductById('${p.id}')">
-                <span class="brand">${p.location}</span>
-                <span class="price">${p.price}</span>
-                <span class="title">${p.state}</span>
-                <a href="${pageContext.request.contextPath}/business/modifyparkingspacebyid?id=${p.id}"><em class="query"></em></a>
-            </div>
-        </c:forEach>
+<section class="business_message">
+    <div class="head">我发布的优惠券</div>
+    <div class="title">
+        <ul>
+            <li>优惠券编号</li>
+            <li>内容</li>
+            <li>接收者</li>
+            <li>状态</li>
+        </ul>
     </div>
+    <div class="carts-content">
+        <c:forEach items="${mycouponslist}" var="c">
+            <ul>
+                <li><span class="message">${c.id}</span></li>
+                <li><span class="message">${c.content}</span></li>
+                <li><span class="message">${c.receiver}</span></li>
+                <li><span class="message">${c.state}</span></li>
+            </ul>
+        </c:forEach>
+    </div >
 </section>
+
+
+
 <aside class="aside-tool">
     <ul>
         <li class="customer">

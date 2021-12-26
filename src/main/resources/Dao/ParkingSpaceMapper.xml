@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Dao.ParkingSpaceMapper">
     <select id="GetAllParkingSpace" resultType="ParkingSpace">
-        select * from parkingspace
+        select * from parkingspace where state!='待审核'
     </select>
     <select id="GetAllParkingSpaceById" resultType="ParkingSpace" parameterType="java.lang.String">
         select * from parkingspace where id=#{id}
@@ -27,6 +27,14 @@
     <update id="ModifyParkingSpaceById" parameterType="ParkingSpace">
         update parkingspace set community=#{community},licenses=#{licenses},location=#{location},price=#{price},discount=#{discount} ,state='待审核'
         where id=#{id}
+    </update>
+
+    <select id="AdminGetParkingSpace" resultType="ParkingSpace">
+        select * from parkingspace
+    </select>
+
+    <update id="CheckParkingSpace" parameterType="java.lang.String">
+        update parkingspace set state='未出售' where id=#{id}
     </update>
 
 </mapper>

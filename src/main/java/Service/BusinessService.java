@@ -1,8 +1,6 @@
 package Service;
 
-import Pojo.Account;
-import Pojo.Message;
-import Pojo.ParkingSpace;
+import Pojo.*;
 
 import java.util.List;
 
@@ -11,4 +9,8 @@ public interface BusinessService {
     ParkingSpace AddParkingSpace(ParkingSpace parkingSpace);
     int ModifyParkingSpaceById(ParkingSpace ParkingSpace);
     int AddMessage(Message message);
+    List<Message> GetMessageBusiness(Account account);
+    void AddCoupons(Coupons coupons);
+    List<Coupons> GetBusinessCoupons(Account account);
+    List<Order> GetOrderBusiness(Account account);
 }

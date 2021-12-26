@@ -14,8 +14,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,6 +57,9 @@ public class IndexController {
          else if(account.getUsertype().equals("业务人员")) {
              session.setAttribute("ParkingSpaceList",businessService.GetBusinessParkingSpace(account));
              return "business_main";
+           }
+         else if(account.getUsertype().equals("管理员")){
+             return "admin_main";
            }
        }
        else {
@@ -96,5 +103,30 @@ public class IndexController {
     public String usergetcoupons(@ModelAttribute("account")Account account,Model model){
         model.addAttribute("mycouponslist",userService.usergetcoupons(account));
         return "mycoupons";
+    }
+    @RequestMapping("/download")
+    public String download(HttpServletRequest request,HttpServletResponse response){
+        String filepath="G:\\JavaEE\\ParkingSpace_Sale\\src\\main\\webapp\\file\\contract.docx";
+        FileInputStream in=null;
+        ServletOutputStream out=null;
+        response.setHeader("Content-Type","application/x-msdownload");
+        response.setHeader("Content-Disposition","attachment;filename=contract.docx");
+        try {
+            in =new FileInputStream(filepath);
+            out= response.getOutputStream();
+            out.flush();
+            int aRead=0;
+            byte b[]=new byte[1024];
+            while ((aRead=in.read(b))!=-1 & in!=null){
+                out.write(b,0,aRead);
+            }
+            out.flush();
+            in.close();
+            out.close();
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        logger.info("下载成功");
+        return null;
     }
 }

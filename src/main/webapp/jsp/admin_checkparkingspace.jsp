@@ -1,18 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: 尘起
-  Date: 2021/12/20
-  Time: 10:50
+  Date: 2021/12/26
+  Time: 18:22
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>我的订单</title>
+    <title>车位审核</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/main.css">
+
 </head>
 <body>
 <div id="preloader" >
@@ -21,13 +22,11 @@
 <header>
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="logo"></div>
-        <a href="${pageContext.request.contextPath }/jsp/product.jsp">首页</a>
-        <a href="${pageContext.request.contextPath }/user/getorder?username=${account.username}">我的订单</a>
-        <a href="${pageContext.request.contextPath }/user/getmessage?username=${account.username}">消息通知</a>
-        <a href="${pageContext.request.contextPath }/user/getcoupons?username=${account.username}">我的优惠卷</a>
-        <a href="javascript:void(0)" onclick="phone('配件')">客服咨询</a>
+        <a href="${pageContext.request.contextPath }/admin/admingetparkingspace">审核车位发布</a>
+        <a href="${pageContext.request.contextPath }/admin/admingetmessage">审核消息发布</a>
+        <a href="${pageContext.request.contextPath }/admin/admingetcoupons">审核优惠券发布</a>
         <span class="slider-bar"></span>
-        <i class="carts" onclick="tocart()"></i>
+        <%--        <i class="carts" onclick="tocart()"></i>--%>
         <span>
         <c:if test="${not empty account }">
             <h4 class="user">${account.username}</h4>
@@ -46,56 +45,47 @@
     </nav>
 </header>
 
-<section class="Carts1">
-    <div class="head">我的订单</div>
+<section class="admin_checkparking">
+    <div class="head">车位审核</div>
     <div class="title">
         <ul>
             <li>车位编号</li>
-            <li>车位信息</li>
-            <li>车位原价</li>
-            <li>车位折扣</li>
-            <li>订单状态</li>
-            <li>订单时间</li>
-            <li>最终价格</li>
+            <li>车位小区</li>
+            <li>车位证照信息</li>
+            <li>车位地址</li>
+            <li>价格</li>
+            <li>折扣</li>
+            <li>状态</li>
+            <li>发布者</li>
             <li>操作</li>
         </ul>
     </div>
     <div class="carts-content">
-        <c:forEach items="${myorderlist}" var="c">
+        <c:forEach items="${adminparkingspacelist}" var="c">
             <ul>
                 <li><span class="message">${c.id}</span></li>
                 <li>
-                    <img src="${pageContext.request.contextPath}/image/parkingspace/${c.parkingSpace.url}">
+                    <img src="${pageContext.request.contextPath}/image/parkingspace/${c.url}">
                     <div class="carts-details">
-                        <span>小区:</span><a>${c.parkingSpace.community}</a></br>
-                        <span>证照信息:</span><a>${c.parkingSpace.licenses}</a></br>
-                        <span>位置:</span><a>${c.parkingSpace.location}</a>
+                        <span>小区:</span><a>${c.community}</a></br>
                     </div>
                 </li>
-                <li><span class="price">${c.parkingSpace.price}</span></li>
-                <li><span class="message">${c.parkingSpace.discount}</span></li>
-                <li><span class="message">${c.state}</span></li>
-                <li><span class="message">${c.orderTime}</span></li>
+                <li><span class="message">${c.licenses}</span></li>
+                <li><span class="message">${c.location}</span></li>
                 <li><span class="price">${c.price}</span></li>
-                <li>
-                    <a	href="javascript:void(0)" >提交定金</a></br>
-                    <a	href="javascript:void(0)" >支付尾款</a></br>
-                    <a	href="${pageContext.request.contextPath}/user/download" >打印合同</a>
-                </li>
+                <li><span class="message">${c.discount}</span></li>
+                <li><span class="message">${c.state}</span></li>
+                <li><span class="message">${c.publisher}</span></li>
+                <li><span class="message">
+                    <c:if test="${c.state=='待审核'}">
+                        <a href="${pageContext.request.contextPath}/admin/checkparkingspace?id=${c.id}">审核通过</a>
+                    </c:if>
+                </span></li>
             </ul>
         </c:forEach>
     </div >
 </section>
 
-<aside class="aside-tool">
-    <ul>
-        <li class="customer">
-            <a href="http://wpa.qq.com/msgrd?v=3&uin=476759153&site=qq&menu=yes" target=_blank
-               clickid=guanwang_navigation_customer>联系客服</a>
-        </li>
-        <li class="top"></li>
-    </ul>
-</aside>
 <footer>
     <div>
         <ul>
@@ -114,5 +104,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/main.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/onloada.js"></script>
+
 </body>
 </html>

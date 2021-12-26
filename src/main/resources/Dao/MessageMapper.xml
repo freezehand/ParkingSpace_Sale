@@ -11,4 +11,16 @@
         insert into message(sender, receiver, content, state)
         VALUES (#{sender},#{receiver},#{content},'待审核')
     </insert>
+
+    <select id="GetMessageBusiness" parameterType="Account" resultType="Message">
+        select * from message where sender=#{username}
+    </select>
+
+    <select id="AdminGetMessage" resultType="Message">
+        select * from message
+    </select>
+
+    <update id="CheckMessage" parameterType="java.lang.String">
+        update message set state='已审核' where id=#{id}
+    </update>
 </mapper>

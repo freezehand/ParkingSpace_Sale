@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: 尘起
-  Date: 2021/12/25
-  Time: 17:10
+  Date: 2021/12/26
+  Time: 19:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-  <title>结果</title>
+  <title>业务人员管理界面</title>
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/jquery-ui.css">
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/main.css">
@@ -67,11 +67,9 @@
     <%--        </c:forEach>--%>
   </aside>
   <div class="content">
-   <h3 align="center">${message}</h3>
+    <h3 align="center">${message}</h3>
   </div>
 </section>
-
-
 
 <footer>
   <div>
@@ -91,5 +89,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/main.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/onloada.js"></script>
+
 </body>
 </html>

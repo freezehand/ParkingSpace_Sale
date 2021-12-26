@@ -1,10 +1,10 @@
 package Service;
 
+import Dao.CouponsMapper;
 import Dao.MessageMapper;
+import Dao.OrderMapper;
 import Dao.ParkingSpaceMapper;
-import Pojo.Account;
-import Pojo.Message;
-import Pojo.ParkingSpace;
+import Pojo.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,6 +17,10 @@ public class BusinessServiceImpl implements BusinessService{
     private ParkingSpaceMapper parkingSpaceMapper;
     @Resource
     private MessageMapper messageMapper;
+    @Resource
+    private CouponsMapper couponsMapper;
+    @Resource
+    private OrderMapper orderMapper;
 
     @Override
     public List<ParkingSpace> GetBusinessParkingSpace(Account account) {
@@ -41,5 +45,25 @@ public class BusinessServiceImpl implements BusinessService{
     public int AddMessage(Message message) {
         messageMapper.AddMessage(message);
         return 0;
+    }
+
+    @Override
+    public List<Message> GetMessageBusiness(Account account) {
+        return messageMapper.GetMessageBusiness(account);
+    }
+
+    @Override
+    public void AddCoupons(Coupons coupons) {
+        couponsMapper.AddCoupons(coupons);
+    }
+
+    @Override
+    public List<Coupons> GetBusinessCoupons(Account account) {
+        return couponsMapper.GetCouponsBusiness(account);
+    }
+
+    @Override
+    public List<Order> GetOrderBusiness(Account account) {
+        return orderMapper.GetOrderBusiness(account);
     }
 }

@@ -4,6 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Dao.CouponsMapper">
     <select id="UserGetCoupons" resultType="Coupons" parameterType="Account">
-        select * from coupons where receiver=#{username}
+        select * from coupons where receiver=#{username} and state!='待审核'
     </select>
+
+    <insert id="AddCoupons" parameterType="Coupons">
+        insert into coupons(sender, receiver, content, state)
+        VALUES (#{sender},#{receiver},#{content},'待审核')
+    </insert>
+
+    <select id="GetCouponsBusiness" parameterType="Account" resultType="Coupons">
+        select * from coupons where sender=#{username}
+    </select>
+    <select id="AdminGetCoupons" resultType="Coupons">
+        select * from coupons
+    </select>
+    <update id="CheckCoupons" parameterType="java.lang.String">
+        update coupons set state='未使用' where id=#{id}
+    </update>
 </mapper>

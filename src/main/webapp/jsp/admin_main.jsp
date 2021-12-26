@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: 尘起
-  Date: 2021/12/23
-  Time: 20:57
+  Date: 2021/12/26
+  Time: 15:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>业务人员新增停车位</title>
+    <title>后台管理人员</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/main.css">
@@ -21,12 +21,11 @@
 <header>
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="logo"></div>
-        <a href="${pageContext.request.contextPath }/jsp/business_main.jsp">我的车位发布</a>
-        <a href="${pageContext.request.contextPath }/business/getbusinessmessage?username=${account.username}">我的消息发布</a>
-        <a href="${pageContext.request.contextPath }/business/getbusinesscoupons?username=${account.username}">我的优惠券发布</a>
-        <a href="${pageContext.request.contextPath }/business/getbusinessorder?username=${account.username}">我的订单</a>
+        <a href="${pageContext.request.contextPath }/admin/admingetparkingspace">审核车位发布</a>
+        <a href="${pageContext.request.contextPath }/admin/admingetmessage">审核消息发布</a>
+        <a href="${pageContext.request.contextPath }/admin/admingetcoupons">审核优惠券发布</a>
         <span class="slider-bar"></span>
-        <i class="carts" onclick="tocart()"></i>
+<%--        <i class="carts" onclick="tocart()"></i>--%>
         <span>
         <c:if test="${not empty account }">
             <h4 class="user">${account.username}</h4>
@@ -51,72 +50,34 @@
         <%--        <c:forEach items="${c2name}" var="p" varStatus="vs">--%>
         <dl class="panel panel-default">
             <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" >
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addparkingspace.jsp">发布新车位</a></span>
+                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/admin/admingetparkingspace">审核车位发布</a></span>
             </dt>
         </dl>
         <dl class="panel panel-default">
             <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside">
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addmessage.jsp">发布新消息</a></span>
+                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/admin/admingetmessage">审核消息发布</a></span>
             </dt>
         </dl>
         <dl class="panel panel-default">
             <dt data-toggle="collapse" data-target=".1" aria-expanded="true" data-parent="#aside" >
-                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/jsp/addcoupons.jsp">发布新优惠券</a></span>
+                <span class="collapse-btn"><a href="${pageContext.request.contextPath }/admin/admingetcoupons">审核优惠券发布</a></span>
             </dt>
         </dl>
         <%--        </c:forEach>--%>
     </aside>
     <div class="content">
-        <form action="${pageContext.request.contextPath}/business/addParkingSpace" method="post"
-               enctype="multipart/form-data">
-            <table border="1" align="center">
-                <tr style="display:none">
-                    <td>id</td>
-                    <td><input type="text" name="id"></td>
-                </tr>
-                <tr>
-                    <td>小区名</td>
-                    <td><input type="text" name="community"></td>
-                </tr>
-                <tr>
-                    <td>证照信息</td>
-                    <td><input type="text" name="licenses"></td>
-                </tr>
-                <tr>
-                    <td>地址</td>
-                    <td><input type="text" name="location"></td>
-                </tr>
-                <tr>
-                    <td>价格</td>
-                    <td><input type="text" name="price"></td>
-                </tr>
-                <tr>
-                    <td>折扣</td>
-                    <td>
-                        <select name="discount">
-                        <option value="九五折">九五折</option>
-                        <option value="九折">九折</option>
-                        <option value="无折扣" selected="selected">无折扣</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>商品图片</td>
-                    <td><input type="file" name="file"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="提交" >&nbsp;&nbsp;
-                        <input type="reset" value="取消">
-                    </td>
-                </tr>
-            </table>
-        </form>
+        <h3 align="center">车位销售系统后台</h3>
     </div>
 </section>
-
-
-
+<aside class="aside-tool">
+    <ul>
+        <li class="customer">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=476759153&site=qq&menu=yes" target=_blank
+               clickid=guanwang_navigation_customer>联系客服</a>
+        </li>
+        <li class="top"></li>
+    </ul>
+</aside>
 <footer>
     <div>
         <ul>
@@ -135,5 +96,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/main.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/onloada.js"></script>
+
 </body>
 </html>

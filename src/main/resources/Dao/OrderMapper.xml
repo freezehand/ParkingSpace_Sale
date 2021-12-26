@@ -15,4 +15,9 @@
     <select id="GetOrderByUsername" parameterType="Account" resultMap="OrderFromAccount">
         select * from `order` where username=#{username}
     </select>
+
+    <select id="GetOrderBusiness" parameterType="Account" resultMap="OrderFromAccount">
+        select * from `order` where parkingSpace in (select id from parkingspace where publisher=#{username})
+    </select>
+
 </mapper>

@@ -1,6 +1,7 @@
 package Controller;
 
 import Pojo.Account;
+import Pojo.Coupons;
 import Pojo.Message;
 import Pojo.ParkingSpace;
 import Service.BusinessService;
@@ -93,5 +94,31 @@ public class BusinessController {
         }
 
     }
+    @RequestMapping("/getbusinessmessage")
+    public String getbusinessmessage(@ModelAttribute("account")Account account, Model model){
+        model.addAttribute("mymessagelist", businessService.GetMessageBusiness(account));
+        return "business_message";
+    }
 
+    @RequestMapping("/getbusinesscoupons")
+    public  String getbusinesscoupons(@ModelAttribute("account")Account account,Model model){
+        model.addAttribute("mycouponslist",businessService.GetBusinessCoupons(account));
+        return "business_coupons";
+    }
+
+    @RequestMapping("/addCoupons")
+    public String addCoupons(@ModelAttribute ("coupons")Coupons coupons,Model model,
+                             HttpSession session)
+    {
+        Account account= (Account) session.getAttribute("account");
+        coupons.setSender(account.getUsername());
+        businessService.AddCoupons(coupons);
+        model.addAttribute("message","优惠券已发布，等待管理员审核");
+        return "result_business";
+    }
+    @RequestMapping("/getbusinessorder")
+    public String getbusinessorder(@ModelAttribute("account") Account account,Model model) {
+        model.addAttribute("businessorderlist",businessService.GetOrderBusiness(account));
+        return "business_order";
+    }
 }
