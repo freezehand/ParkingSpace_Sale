@@ -23,7 +23,7 @@
 <header>
   <nav class="navbar navbar-inverse" role="navigation">
     <div class="logo"></div>
-    <a href="${pageContext.request.contextPath }/jsp/product.jsp">首页</a>
+    <a href="${pageContext.request.contextPath }/user/user_flash?username=${account.username}">首页</a>
     <a href="${pageContext.request.contextPath }/user/getorder?username=${account.username}">我的订单</a>
     <a href="${pageContext.request.contextPath }/user/getmessage?username=${account.username}">消息通知</a>
     <a href="${pageContext.request.contextPath }/user/getcoupons?username=${account.username}">我的优惠券</a>
@@ -83,7 +83,9 @@
                 <span class="brand">${p.location}</span>
                 <span class="price">${p.price}</span>
                 <span class="title">${p.state}</span>
+                <c:if test="${p.state!='已出售'}">
                 <a href="${pageContext.request.contextPath}/parkingspace/getparkingspacebyid?id=${p.id}"><em class="fast-buy"></em></a>
+                </c:if>
             </div>
         </c:forEach>
     </div>

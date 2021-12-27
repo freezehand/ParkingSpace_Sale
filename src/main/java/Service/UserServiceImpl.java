@@ -1,10 +1,13 @@
 package Service;
 
+import Common.price;
 import Dao.*;
 import Pojo.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +24,8 @@ public class UserServiceImpl implements UserService{
     private MessageMapper messageMapper;
     @Resource
     private CouponsMapper couponsMapper;
+    @Resource
+    private ParkingSpaceMapper parkingSpaceMapper;
 
     @Override
     public int userlogin(Account account){
@@ -61,4 +66,20 @@ public class UserServiceImpl implements UserService{
         return couponsMapper.UserGetCoupons(account);
     }
 
+    @Override
+    public void addorder(Account account, ParkingSpace parkingSpace) {
+        Order order=new Order();
+        order.setUsername(account.getUsername());
+        Date now=new Date();
+        DateFormat dateFormat=DateFormat.getDateTimeInstance();
+        String str=dateFormat.format(now);
+        order.setOrderTime(str);
+        order.setState("已预订");
+        parkingSpace=parkingSpaceMapper.GetAllParkingSpaceById(parkingSpace.getId());
+        order.setPrice(price.getprice(parkingSpace));
+        parkingSpace.setState("已预订");
+        order.setParkingSpace(parkingSpace);
+        parkingSpaceMapper.SetParkingsSpace(parkingSpace);
+        orderMapper.AddOrder(order);
+    }
 }

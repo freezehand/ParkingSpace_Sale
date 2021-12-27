@@ -21,7 +21,7 @@
 <header>
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="logo"></div>
-        <a href="${pageContext.request.contextPath }/jsp/product.jsp">首页</a>
+        <a href="${pageContext.request.contextPath }/user/user_flash?username=${account.username}">首页</a>
         <a href="${pageContext.request.contextPath }/user/getorder?username=${account.username}">我的订单</a>
         <a href="${pageContext.request.contextPath }/user/getmessage?username=${account.username}">消息通知</a>
         <a href="${pageContext.request.contextPath }/user/getcoupons?username=${account.username}">我的优惠卷</a>

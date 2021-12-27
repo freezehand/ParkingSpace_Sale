@@ -37,4 +37,9 @@
         update parkingspace set state='未出售' where id=#{id}
     </update>
 
+    <update id="SetParkingsSpace" parameterType="ParkingSpace">
+        update parkingspace set community=#{community},licenses=#{licenses},location=#{location},price=#{price},discount=#{discount},state='已预订'
+        where id=#{id}
+    </update>
+
 </mapper>

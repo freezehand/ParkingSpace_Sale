@@ -12,4 +12,6 @@ public interface UserService {
     List<Order> getOrder(Account account);
     List<Message> usergetmessage(Account account);
     List<Coupons> usergetcoupons(Account account);
+
+    void addorder(Account account, ParkingSpace parkingSpace);
 }

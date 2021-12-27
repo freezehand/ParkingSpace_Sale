@@ -22,7 +22,7 @@
 <header>
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="logo"></div>
-        <a href="${pageContext.request.contextPath }/jsp/product.jsp">首页</a>
+        <a href="${pageContext.request.contextPath }/user/user_flash?username=${account.username}">首页</a>
         <a href="${pageContext.request.contextPath }/user/getorder?username=${account.username}">我的订单</a>
         <a href="${pageContext.request.contextPath }/user/getmessage?username=${account.username}">消息通知</a>
         <a href="${pageContext.request.contextPath }/user/getcoupons?username=${account.username}">我的优惠卷</a>
@@ -68,8 +68,8 @@
             <li><span>发布者</span><a class="u-check n-check">${ParkingSpace.publisher}</a></li>
         </ul>
         <div class="action">
-            <a class="buy"	href="fastbuy.jsp">立即购买</a>
-            <a class="addCar" onclick="addProductToCart('${pro.id}')"><i></i>加入购物车</a>
+            <a class="buy"	href="${pageContext.request.contextPath}/user/buy?id=${ParkingSpace.id}">立即购买</a>
+<%--            <a class="addCar" onclick="addProductToCart('${pro.id}')"><i></i>加入购物车</a>--%>
         </div>
     </div>
 </section>

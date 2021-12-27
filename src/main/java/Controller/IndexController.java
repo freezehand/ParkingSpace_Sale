@@ -3,6 +3,7 @@ package Controller;
 import Common.encode;
 import Pojo.Account;
 import Pojo.Address;
+import Pojo.ParkingSpace;
 import Service.BusinessService;
 import Service.ParkingSpaceService;
 import Service.UserService;
@@ -36,6 +37,13 @@ public class IndexController {
 
     @Autowired
     private BusinessService businessService;
+
+    @RequestMapping("user_flash")
+    public String user_flash(@ModelAttribute("account") Account account, Model model, HttpSession session){
+        session.setAttribute("ParkingSpaceList",parkingSpaceService.getAllParkingSpace());
+        session.setAttribute("account",account);
+        return "product";
+    }
 
     @RequestMapping("flash")
     public String flash(Model model,HttpSession session){
@@ -128,5 +136,12 @@ public class IndexController {
         }
         logger.info("下载成功");
         return null;
+    }
+    @RequestMapping("/buy")
+    public String buy(ParkingSpace parkingSpace,HttpSession session,Model model){
+        Account account=(Account) session.getAttribute("account");
+        userService.addorder(account,parkingSpace);
+        model.addAttribute("myorderlist",userService.getOrder(account));
+        return "myorder";
     }
 }

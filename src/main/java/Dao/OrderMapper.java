@@ -9,4 +9,6 @@ public interface OrderMapper {
     List<Order> GetOrderByUsername(Account account);
 
     List<Order> GetOrderBusiness(Account account);
+
+    void AddOrder(Order order);
 }

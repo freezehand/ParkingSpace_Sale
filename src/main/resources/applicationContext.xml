@@ -75,11 +75,17 @@
     <context:component-scan base-package="Service"/>
     <context:component-scan base-package="Pojo"/>
 
+    <context:component-scan base-package="Aop"/>
+    <context:component-scan base-package="Controller"/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
     <!--配置spring声明式事务管理-->
     <!--配置事务管理器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+
 
     <!--    &lt;!&ndash;配置事务通知&ndash;&gt;-->
     <!--    <tx:advice id="txAdvice" transaction-manager="transactionManager">-->

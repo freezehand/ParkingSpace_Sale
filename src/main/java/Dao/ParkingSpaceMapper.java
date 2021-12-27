@@ -19,4 +19,6 @@ public interface ParkingSpaceMapper {
     List<ParkingSpace> AdminGetParkingSpace();
 
     void CheckParkingSpace(String id);
+
+    void SetParkingsSpace(ParkingSpace parkingSpace);
 }

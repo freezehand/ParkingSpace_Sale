@@ -19,5 +19,9 @@
     <select id="GetOrderBusiness" parameterType="Account" resultMap="OrderFromAccount">
         select * from `order` where parkingSpace in (select id from parkingspace where publisher=#{username})
     </select>
+    <insert id="AddOrder" parameterType="Order">
+        insert into `order` (username, ordertime, parkingspace, state, price)
+        values (#{username},#{orderTime},#{parkingSpace.id},#{state},#{price})
+    </insert>
 
 </mapper>
