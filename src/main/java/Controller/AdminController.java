@@ -34,7 +34,7 @@ public class AdminController {
     @RequestMapping("/checkmessage")
     public String checkmessage(String id){
         adminService.checkmessage(id);
-        return "redirect:/admin/checkmessage";
+        return "redirect:/admin/admingetmessage";
     }
     @RequestMapping("/admingetcoupons")
     public String admingetcoupons(Model model){

@@ -79,7 +79,7 @@
     <div class="content">
         <c:forEach items="${sessionScope.ParkingSpaceList}" var="p">
             <div class="product">
-                <img src="${pageContext.request.contextPath }/parkingspace/${p.url}" onclick="findProductById('${p.id}')">
+                <img src="${pageContext.request.contextPath }/image/parkingspace/${p.url}" onclick="findProductById('${p.id}')">
                 <span class="brand">${p.location}</span>
                 <span class="price">${p.price}</span>
                 <span class="title">${p.state}</span>
